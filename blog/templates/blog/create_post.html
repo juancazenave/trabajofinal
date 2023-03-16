@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block contenido %}
+
+{% block title %}
+CREATE A POST
+{% endblock title %}
+
+    {% if miFormulario.errors %}
+    <p style="color:red;">WRONG DATA - CORRECT IT PLEASE</p>
+    {% endif %}
+
+    <form action="" method="POST" enctype="multipart/form-data"> 
+        {% csrf_token %}
+        
+        <table>
+            {{ miFormulario.as_table}}
+        </table>
+        <!-- <p>Title: <input type="text" name="title"></p>
+        <p>Intro: <input type="text" name="intro"></p>
+        <p>Body: <input type="text" name="body"></p> -->
+        <input type="submit" value="Post it!">
+    </form>
+
+{% endblock contenido %}
